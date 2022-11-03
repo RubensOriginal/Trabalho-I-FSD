@@ -60,6 +60,20 @@ begin
     end if;
   end process;
 
+  process (reset, clock)
+  begin
+    if reset = '1' then
+      cont <= "00";
+    elsif rising_edge(clock) then
+      if EA = PER then
+        cont <= cont + 1;
+      else
+        cont <= "00";
+      end if;
+    end if;
+  end process;
+
+
   -- Maquina de Estados
   process(EA, prog, match, cont)
   begin
@@ -97,8 +111,6 @@ begin
       when PER =>
         if cont = "11" then
           PE <= BSC;
-        else
-          cont <= cont + 1;
         end if;
       when BLK =>
         if prog = "110" then
