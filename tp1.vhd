@@ -213,6 +213,26 @@ begin
     end if;
   end process;
 
+  -- Registrador alarme_int
+  process(clock, reset)
+  begin
+    if reset = '1' then
+      alarme_int <= '0';
+    elsif rising_edge(clock) then
+      if match = '1' then
+        alarme_int <= '1';
+      elsif cont = "11" then
+        alarme_int <= '0';
+      elsif EA = BLK then
+        alarme_int <= '1';
+      elsif EA = BSC then
+        alarme_int <= '0';
+      elsif EA = RESET_STATE then
+        alarme_int <= '0';
+      end if;
+    end if;
+  end process;
+
   C_p1 <= '1' when reg_din = p1 else '0';
   C_p2 <= '1' when reg_din = p2 else '0';
   C_p3 <= '1' when reg_din = p3 else '0';
@@ -222,6 +242,10 @@ begin
   match_p3 <= C_p3 and valid_p3;
 
   match <= match_p1 or match_p2 or match_p3;
+
+  alarme <= alarme_int;
+
+  dout <= din and not alarme_int;
 
   -- <COMPLETAR>
 
