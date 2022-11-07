@@ -111,6 +111,8 @@ begin
       when PER =>
         if cont = "11" then
           PE <= BSC;
+        elsif prog = "101" then
+          PE <= BLK;
         end if;
       when BLK =>
         if prog = "110" then

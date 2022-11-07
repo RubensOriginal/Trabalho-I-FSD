@@ -7,18 +7,18 @@ add wave -noupdate -divider {fluxo IN e OUT}
 add wave -noupdate /tb/dut/din
 add wave -noupdate /tb/dut/dout
 
-add wave -noupdate  -radix hexadecimal /tb/dut/reg_din
+add wave -noupdate -radix hexadecimal /tb/dut/reg_din
 
 add wave -noupdate -divider {PROGRAMACAO}
 add wave -noupdate -radix unsigned /tb/dut/prog
 
 add wave -noupdate -divider {PADROES}
-add wave -noupdate  /tb/dut/valid_p1
-add wave -noupdate  -radix hexadecimal /tb/dut/p1
+add wave -noupdate /tb/dut/valid_p1
+add wave -noupdate -radix hexadecimal /tb/dut/p1
 add wave -noupdate /tb/dut/valid_p2
 add wave -noupdate -radix hexadecimal /tb/dut/p2
-add wave -noupdate -color red /tb/dut/valid_p3
-add wave -noupdate -color red -radix hexadecimal /tb/dut/p3
+add wave -noupdate /tb/dut/valid_p3
+add wave -noupdate -radix hexadecimal /tb/dut/p3
 
 add wave -noupdate -divider {ALARME}
 add wave -noupdate /tb/dut/alarme
